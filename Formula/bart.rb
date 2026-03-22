@@ -2,7 +2,7 @@ class Bart < Formula
   desc "AI-powered TDD task runner for software development"
   homepage "https://github.com/leandrostoroli/bart-loop"
   url "https://github.com/leandrostoroli/bart-loop/archive/refs/tags/v#{version}.tar.gz"
-  sha256 "876c86de76827c1bf75edc080579419378deebd0233c1b236bb788bc00bc48f6"
+  sha256 "234943ace040e2671c0663449dc21c5f361b762ac34beb53f6d79cb002454fb0"
   license "MIT"
 
   depends_on "bun"
@@ -16,6 +16,10 @@ class Bart < Formula
       #!/bin/bash
       exec bun "#{libexec}/src/index.ts" "$@"
     SH
+  end
+
+  def post_install
+    system bin/"bart", "install"
   end
 
   test do
